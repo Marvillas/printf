@@ -1,7 +1,7 @@
 # This a team project on PRINTF Project in ALX Software Engineering
 # Contributors are: Marvis Aigbe, Sophia Ezeh
 
-			_printf Project
+# _printf Project
 Description
 This is a custom implementation of the C library printf function, called _printf, developed by Marvis Aigbe and Sophia Ezeh. Our implementation provides support for a subset of standard printf features, as well as some custom conversion specifiers.
 
@@ -12,13 +12,12 @@ c: character
 s: string
 %: literal '%'
 d, i: signed decimal integer
-u: unsigned decimal integer
-o: unsigned octal integer
+u: unsigned decimal integero: unsigned octal integer
 x: unsigned hexadecimal integer (lowercase)
 X: unsigned hexadecimal integer (uppercase)
 p: pointer address
-It also supports the following custom conversion specifiers:
 
+It also supports the following custom conversion specifiers:
 b: unsigned integer in binary format
 S: string with non-printable characters displayed as "\x" followed by their hexadecimal ASCII code (uppercase, always 2 characters)
 r: reversed string
