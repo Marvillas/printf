@@ -1,5 +1,5 @@
 ## This a team project on PRINTF Project in ALX Software Engineering
-## Contributors are: Marvis Aigbe, Sophia Ezeh
+## Contributors are: [Marvis Aigbe], [Sophia Ezeh]
 
 # _printf Project
 ## Description
