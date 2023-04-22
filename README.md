@@ -38,4 +38,4 @@ To use this _printf implementation, include the header file in your C source cod
 This _printf implementation does not reproduce the full buffer handling capabilities of the C library printf function, and some options might not work exactly as they do in the standard version.
 
 
-## Contributors are: [Marvis Aigbe](https://github.com/Marvillas), [Sophia Ezeh](https://github.com/Solexi)
+Contributors are: [Marvis Aigbe](https://github.com/Marvillas), [Sophia Ezeh](https://github.com/Solexi)
