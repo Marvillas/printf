@@ -6,7 +6,6 @@
  * @flags: unused
  * Return: the number of characters printed
  */
-
 int print_percent(va_list types, int flags)
 {
 	(void)types;

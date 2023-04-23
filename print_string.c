@@ -6,6 +6,7 @@
  * @flags: unused
  * Return: the number of characters printed
  */
+
 int print_string(va_list types, int flags)
 {
 	char *s = va_arg(types, char *);
