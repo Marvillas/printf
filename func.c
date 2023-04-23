@@ -45,8 +45,7 @@ int print_string(va_list arg)
 int print_percent(va_list arg)
 {
 	(void)arg;
-	_putchar('%');
-	return (1);
+	return (write(1, "%%", 1));
 }
 /**
  * _putchar - writes the character c to stdout

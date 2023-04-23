@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		{"X", print_hex_upper},
 		{NULL, NULL}
 	};
-
+	
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
