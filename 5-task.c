@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_spec_String - prints a string with non-printable characters
  *
