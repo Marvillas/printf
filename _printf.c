@@ -2,35 +2,61 @@
 
 /**
  * _printf - produces output according to a format
- * @format: the format string
- * Return: the number of characters printed
+ *
+ * @format: character string
+ *
+ * Return: number of characters printed (excluding the null byte used to end output to strings)
  */
+
 int _printf(const char *format, ...)
 {
-	va_list types;
-	int total_chars = 0;
+	va_list args;
+	int i = 0, j, count = 0;
+	print_op_t ops[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_binary},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_hex_upper},
+		{NULL, NULL}
+	};
 
-	va_start(types, format);
-	while (*format)
+	va_start(args, format);
+	while (format && format[i])
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			if (*format == 'c')
-				total_chars += print_char(types, 0);
-			else if (*format == 's')
-				total_chars += print_string(types, 0);
-			else if (*format == '%')
-				total_chars += print_percent(types, 0);
+			j = 0;
+			while (ops[j].op)
+			{
+				if (format[i + 1] == *(ops[j].op))
+				{
+					count += ops[j].f(args);
+					i++;
+					break;
+				}
+				j++;
+			}
+			if (!ops[j].op && format[i + 1] != ' ')
+			{
+				_putchar(format[i]);
+				count++;
+			}
 		}
 		else
 		{
-			_putchar(*format);
-			total_chars++;
+			_putchar(format[i]);
+			count++;
 		}
-		format++;
+		i++;
 	}
-	va_end(types);
 
-	return (total_chars);
+	va_end(args);
+
+	return (count);
 }
