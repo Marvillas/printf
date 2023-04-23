@@ -31,6 +31,7 @@ int print_unsigned_helper(unsigned int n);
 int print_octal(va_list arg);
 int print_octal_helper(unsigned int n);
 int print_hex(va_list arg);
+int print_spec_String(va_list arg);
 int print_hex_helper(unsigned int n);
 int print_hex_upper(va_list arg);
 int print_hex_upper_helper(unsigned int n);

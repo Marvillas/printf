@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	print_op_t ops[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"S", print_spec_String},
 		{"%", print_percent},
 		{"d", print_integer},
 		{"i", print_integer},
