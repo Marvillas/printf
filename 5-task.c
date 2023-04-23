@@ -39,7 +39,8 @@ int print_spec_String(va_list arg)
 }
 
 /**
- * print_spec_String_helper - prints a character in hexadecimal format (upper case)
+ * print_spec_String_helper - prints a character in hexadecimal format
+ * (upper case)
  *
  * @n: character
  *
