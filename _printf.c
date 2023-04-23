@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += call_print_func(format, i, args, ops);
+			count += call_print_func(format, &i, args, ops);
 			i++;
 		}
 		else
@@ -51,23 +51,23 @@ int _printf(const char *format, ...)
  *
  * Return: Number of characters printed.
  */
-int call_print_func(const char *format, int i, va_list args, print_op_t *ops)
+int call_print_func(const char *format, int *i, va_list args, print_op_t *ops)
 {
 	int j;
 	int count = 0;
 
 	for (j = 0; ops[j].op; j++)
 	{
-		if (format[i + 1] == *(ops[j].op))
+		if (format[*i + 1] == *(ops[j].op))
 		{
 			count += ops[j].f(args);
 			break;
 		}
 	}
 
-	if (!ops[j].op && format[i + 1] != ' ')
+	if (!ops[j].op && format[*i + 1] != ' ')
 	{
-		_putchar(format[i]);
+		_putchar(format[*i]);
 		count++;
 	}
 
