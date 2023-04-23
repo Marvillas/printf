@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, j, count = 0;
+	int i = 0, count = 0;
 	print_op_t ops[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_start(args, format);
-	for (int i = 0; format && format[i]; i++)
+	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
 		{

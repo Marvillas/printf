@@ -34,6 +34,6 @@ int print_hex(va_list arg);
 int print_hex_helper(unsigned int n);
 int print_hex_upper(va_list arg);
 int print_hex_upper_helper(unsigned int n);
-
+int call_print_func(const char *format, int i, va_list args, print_op_t *ops);
 
 #endif /* MAIN_H */
