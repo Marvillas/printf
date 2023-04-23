@@ -13,7 +13,11 @@ int print_spec_String(va_list arg)
 	int count = 0;
 
 	if (!s)
+	{
 		s = "(null)";
+		_putchar_str(s);
+		return (6);
+	}
 
 	while (*s)
 	{
@@ -31,7 +35,7 @@ int print_spec_String(va_list arg)
 				_putchar('0');
 				count++;
 			}
-			count += print_spec_String_helper((unsigned char)*s);
+			count += print_spec_String_helper((unsigned int)*s);
 		}
 		s++;
 	}

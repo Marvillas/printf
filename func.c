@@ -60,3 +60,23 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * _putchar_str - prints a string using _putchar
+ *
+ * @str: the string to print
+ *
+ * Return: no of characters printed
+ */
+
+int _putchar_str(char *str)
+{
+	int a = 0;
+
+	while (str[a])
+	{
+		_putchar(str[a]);
+		a++
+	}
+	return (a);
+}
