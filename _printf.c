@@ -1,11 +1,10 @@
 #include "main.h"
-
 /**
  * _printf - produces output according to a format
  *
  * @format: character string
  *
- * Return: number of characters printed (excluding the null byte used to end output to strings)
+ * Return: number of characters printed
  */
 
 int _printf(const char *format, ...)
@@ -25,38 +24,52 @@ int _printf(const char *format, ...)
 		{"X", print_hex_upper},
 		{NULL, NULL}
 	};
-
 	va_start(args, format);
-	while (format && format[i])
+	for (int i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
-			j = 0;
-			while (ops[j].op)
-			{
-				if (format[i + 1] == *(ops[j].op))
-				{
-					count += ops[j].f(args);
-					i++;
-					break;
-				}
-				j++;
-			}
-			if (!ops[j].op && format[i + 1] != ' ')
-			{
-				_putchar(format[i]);
-				count++;
-			}
+			count += call_print_func(format, i, args, ops);
+			i++;
 		}
 		else
 		{
 			_putchar(format[i]);
 			count++;
 		}
-		i++;
 	}
 
 	va_end(args);
+	return (count);
+}
+/**
+ * call_print_func - Calls the appropriate printing function
+ * @format: Character string containing the format specifier.
+ * @i: Index of the format specifier in the format string.
+ * @args: va_list of arguments.
+ * @ops: Pointer to the array of print_op_t structures.
+ *
+ * Return: Number of characters printed.
+ */
+int call_print_func(const char *format, int i, va_list args, print_op_t *ops)
+{
+	int j;
+	int count = 0;
+
+	for (j = 0; ops[j].op; j++)
+	{
+		if (format[i + 1] == *(ops[j].op))
+		{
+			count += ops[j].f(args);
+			break;
+		}
+	}
+
+	if (!ops[j].op && format[i + 1] != ' ')
+	{
+		_putchar(format[i]);
+		count++;
+	}
 
 	return (count);
 }
