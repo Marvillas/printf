@@ -75,7 +75,7 @@ int _putchar_str(char *str)
 	while (str[a])
 	{
 		_putchar(str[a]);
-		a++
+		a++;
 	}
 	return (a);
 }
